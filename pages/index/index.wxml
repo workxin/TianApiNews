@@ -1,0 +1,31 @@
+<view class="page">
+    <view class="page__bd">
+    
+        <scroll-view  scroll-x="true" class="scroll-view">
+            <view wx:for="{{NewsTypeList}}" id="{{item.NewsTypeId}}" wx:key="{{item.NewsTypeId}}" class="scroll-view-item {{currentID == item.NewsTypeId?'active':''}}" bindtap="handerTap">{{item.TypeName}}</view>
+        </scroll-view>
+
+        <view class="weui-panel weui-panel_access" style="margin:0" bindtouchstart="handerTouchStart" bindtouchend="handerTouchEnd">
+        
+            <view class="weui-panel__bd">
+                <scroll-view  scroll-y="true" bindscrolltoupper="refreshNewsList" bindscrolltolower="loadMoreNews"
+                    style="height: {{scrollHeight}}px;" scroll-top="{{scrollTop}}" bindscroll="setCurrentYScroll">
+                    <view  class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{TianAPInewsList}}"
+                        wx:key="{{index}}" bindtap="handerNavigator" data-index="{{index}}">
+                            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                <view class="weui-media-box__desc">{{item.title}}</view>
+                                <view class="weui-media-box__info">
+                                    <view class="weui-media-box__info__meta">{{item.description}}</view>
+                                    <view class="weui-media-box__info__meta">{{item.ctime}}</view>
+                                </view>
+                            </view>
+                            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                <image class="weui-media-box__thumb" src="{{item.picUrl}}" />
+                            </view>
+                        
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+    </view>
+</view>
