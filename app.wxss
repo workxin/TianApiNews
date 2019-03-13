@@ -1,4 +1,4 @@
-/**app.wxss**/
+/**weui.wxss**/
 @import 'weui.wxss';
 
 page{
