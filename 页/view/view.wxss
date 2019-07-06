@@ -1,0 +1,16 @@
+page{
+  overflow:auto;
+}
+.NewsContent{
+  text-align:center;
+  margin:16px;
+  height:100%;
+  overflow: scroll;
+}
+.title{
+  font-size: 18px;
+  margin:20px;
+}
+.content{
+   margin:20px 0px; 
+}
