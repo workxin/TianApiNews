@@ -1,6 +1,10 @@
-
 var txapi_base_url = "https://api.tianapi.com";  //天行数据接口域名
 var txapi_key = "";  //请填写你在天行数据www.tianapi.com获得apikey
+
+/** 新闻分类也可以通过频道列表接口动态获取
+ *  接口地址 https://api.tianapi.com/channellist/
+ *  看到说明：https://www.tianapi.com/apiview/65
+ */
 
 var NewsTypeList = [
   {
@@ -32,6 +36,14 @@ var NewsTypeList = [
     TypeName: '科技',
   },
   {
+    NewsTypeId: 33,
+    TypeName: '动漫',
+  },
+  {
+    NewsTypeId: 21,
+    TypeName: 'VR',
+  },
+  {
     NewsTypeId: 23,
     TypeName: '移动',
   },
@@ -40,16 +52,8 @@ var NewsTypeList = [
     TypeName: '足球',
   },
   {
-    NewsTypeId: 33,
-    TypeName: '动漫',
-  },
-  {
     NewsTypeId: 27,
     TypeName: '军事',
-  },
-  {
-    NewsTypeId: 21,
-    TypeName: 'VR',
   },
   {
     NewsTypeId: 32,
@@ -58,6 +62,10 @@ var NewsTypeList = [
   {
     NewsTypeId: 18,
     TypeName: '旅游',
+  },
+  {
+    NewsTypeId: 35,
+    TypeName: '汽车',
   },
   {
     NewsTypeId: 19,
