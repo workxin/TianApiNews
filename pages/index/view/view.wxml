@@ -1,0 +1,5 @@
+<view class="NewsContent">
+<view class="title">{{TianAPInewsTitle}}</view>
+{{TianAPInewsContentTime}}
+<rich-text class="content" nodes="{{TianAPInewsContent}}"></rich-text>
+</view>
