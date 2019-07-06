@@ -49,12 +49,20 @@ Page({
               num:10
             },
             success: function (res) {
-              let temp_data = res.data.newslist;
-              if (res.data.newslist.length != 0) {
+              if (res.data.code == 200) {
+                let temp_data = res.data.newslist;
                 that.setData({ TianAPInewsList: res.data.newslist.concat(temp_data) });
                 }
                 else {
-                that.setData({ TianAPInewsList: res.data.msg});
+                var tianapi_error = res.data.msg + '\n错误状态码：' + res.data.code
+                wx.showModal({
+                  title: '天行数据',
+                  content: tianapi_error,
+                  showCancel: false,
+                  success: function (e) {
+                    console.error(tianapi_error + '\n请登录天行数据tianapi.com查看接口状态')
+                  }
+                })
                 }
                 wx.getSystemInfo({//设置scroll内容高度
                     success: function (res) {
@@ -80,13 +88,10 @@ Page({
 
     },
   handerNavigator: function (e) {//点击新闻列表跳转
-    wx.showModal({
-      title: '提示',
-      content: '小程序不支持外链，原文可用相应插件转换',
-      showCancel:false,
-      success: function (res) {
-      }
-    })
+    var url = e.currentTarget.dataset.url    // 新闻url 
+    wx.navigateTo({
+      url: '/pages/view/view?url=' + url
+    }); 
   },
     handerTouchStart: function (e) {//X,Y开始位置
         let temp = [];
